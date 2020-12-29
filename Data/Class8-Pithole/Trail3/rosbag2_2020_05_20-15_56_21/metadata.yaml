@@ -1,0 +1,41 @@
+rosbag2_bagfile_information:
+  version: 1
+  storage_identifier: sqlite3
+  relative_file_paths:
+    - rosbag2_2020_05_20-15_56_21.db3
+  duration:
+    nanoseconds: 10801677668
+  starting_time:
+    nanoseconds_since_epoch: 1589982987064459026
+  message_count: 1317
+  topics_with_message_count:
+    - topic_metadata:
+        name: /actual_velocity
+        type: geometry_msgs/msg/TwistStamped
+        serialization_format: cdr
+      message_count: 54
+    - topic_metadata:
+        name: /cmd_vel
+        type: geometry_msgs/msg/Twist
+        serialization_format: cdr
+      message_count: 178
+    - topic_metadata:
+        name: /current
+        type: ros2_msg/msg/CurrentMsg
+        serialization_format: cdr
+      message_count: 217
+    - topic_metadata:
+        name: /imu
+        type: sensor_msgs/msg/Imu
+        serialization_format: cdr
+      message_count: 217
+    - topic_metadata:
+        name: /odom
+        type: nav_msgs/msg/Odometry
+        serialization_format: cdr
+      message_count: 217
+    - topic_metadata:
+        name: /tf
+        type: tf2_msgs/msg/TFMessage
+        serialization_format: cdr
+      message_count: 434

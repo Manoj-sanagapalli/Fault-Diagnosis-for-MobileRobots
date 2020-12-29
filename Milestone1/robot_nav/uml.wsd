@@ -1,0 +1,48 @@
+@startuml
+
+
+
+
+
+Participant Navigation_node as "Navigation node"
+participant Kobuki_node as "Kobuki node"
+entity Robot
+participant Ros2bag
+database dbfile as "db file"
+participant Csvextractor_node
+database Excelfiles
+
+
+Navigation_node -> Ros2bag : cmd_vel
+activate Ros2bag
+Ros2bag -> dbfile : record
+Navigation_node -> Kobuki_node : publish velocity
+    activate Kobuki_node
+    Kobuki_node -> Robot : command velocity
+    Robot --> Kobuki_node : raw sensor data
+    Kobuki_node -> Ros2bag : ROS messages
+    Navigation_node -> Kobuki_node : terminate
+    deactivate Kobuki_node
+    Ros2bag -> dbfile : save
+    deactivate Ros2bag
+    dbfile -> Ros2bag : play
+    activate Csvextractor_node
+    activate Ros2bag
+    Ros2bag -> Csvextractor_node : publish data
+    
+    Csvextractor_node -> Excelfiles : convert data
+    deactivate Csvextractor_node
+    deactivate Ros2bag
+
+
+
+
+
+
+
+
+
+
+
+@enduml
+
